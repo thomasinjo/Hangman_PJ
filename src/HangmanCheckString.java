@@ -56,6 +56,10 @@ public void chooseWord(){
                 }
 
 }
+
+public String word(){
+    return hangmanTemp;
+}
 public void checkWord(char ch){
 	usedLetter= false;
 	wrongChoice = false;

@@ -95,6 +95,10 @@ public class HangmanPanel extends JPanel implements MouseListener{
 		if(chString.wrongGuess == 6){
 			g.setColor(Color.red);
 			g.drawString("Hanged", 80, 250);
+                        g.setColor(Color.blue);
+                        g.setFont(new Font("Arial",Font.BOLD,16));
+                        g.drawString("The word was:", 40, 60);
+                        g.drawString(chString.word(),40,80);
 			g.setColor(Color.white);
 			g.fillRect(40, 418, 100, 50);
 			g.setColor(Color.red);
@@ -105,6 +109,7 @@ public class HangmanPanel extends JPanel implements MouseListener{
 
 		repaint();
 	}
+        
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
