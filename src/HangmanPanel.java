@@ -110,6 +110,14 @@ public class HangmanPanel extends JPanel implements MouseListener{
 		repaint();
 	}
         
+        public void startNewGame(){
+            chString.wrongGuess = 0;
+		chString.chooseWord();
+		chString.winOrLoose = false;
+		for(int i = 0; i < 26; i++){ 
+		chString.usedLetterList[i] = '-';
+		}
+        }
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
@@ -118,12 +126,7 @@ public class HangmanPanel extends JPanel implements MouseListener{
 		int mY = e.getY();
 	 ///the If statement below will activated when man is hanged or user wins 
 		if(mX > 40 && mX < 140 && mY > 418 && mY < 468 && (chString.wrongGuess == 6 || chString.winOrLoose == true)){
-			chString.wrongGuess = 0;
-			chString.chooseWord();
-			chString.winOrLoose = false;
-			for(int i = 0; i < 26; i++){ 
-				chString.usedLetterList[i] = '-';
-			}
+			startNewGame();
 		}
 		
 		 // the if statements below is the areas of the letters to be clicked.

@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 
 public class HangmanFrame {
 	
@@ -40,8 +41,8 @@ public class HangmanFrame {
                         "Are you sure you want to start new game?",
                         "Question?", javax.swing.JOptionPane.YES_NO_OPTION, 
                                             javax.swing.JOptionPane.WARNING_MESSAGE);
-                //if(again == javax.swing.JOptionPane.YES_OPTION) 
-                    //panel.startNewGame();
+                if(again == javax.swing.JOptionPane.YES_OPTION) 
+                    panel.startNewGame();
             }
 
             
@@ -60,7 +61,13 @@ public class HangmanFrame {
         
         help.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
-      //            new HighScore(panel);
+                    JOptionPane.showMessageDialog(null, "This Hangman is game of guessing the Country names.\n" +
+                                                        "You guess by picking a letter.\n" +
+                                                        "If you pick right letter, it is written instead of the dash.\n" +
+                                                        "That right letter will be written on the right places in word.\n" +
+                                                        "If you pick wrong letter, you get a part of Stickman.\n" +
+                                                        "If you complete Stickman(pick wrong 6 times) you lose.\n" +
+                                                        "Enjoy.");
             }
         });
         
