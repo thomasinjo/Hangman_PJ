@@ -133,8 +133,8 @@ public class HangmanPanel extends JPanel implements MouseListener{
 		
 		// Top line A to G
 		if(mX > 386 && mX < 430 && mY > 95 && mY < 170){
-		char ch = 'a';
-		chString.checkWord(ch);
+                        char ch = 'a';
+                        chString.checkWord(ch);
 		}
 		if(mX > 432 && mX < 468 && mY > 95 && mY < 170){
 			char ch = 'b';
@@ -153,7 +153,7 @@ public class HangmanPanel extends JPanel implements MouseListener{
 			chString.checkWord(ch);
 			}
 		if(mX > 593 && mX < 624 && mY > 95 && mY < 170){
-			char ch = 'f';  // f being click
+			char ch = 'f';  
 			chString.checkWord(ch);
 			}
 		if(mX > 625 && mX < 670 && mY > 95 && mY < 170){
