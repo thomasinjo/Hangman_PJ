@@ -19,6 +19,7 @@ public class HangmanFrame {
 		jf.setTitle("Hangman");
                 jf.setJMenuBar(initJMenuBar());
 		jf.setSize(715,530);
+                jf.setResizable(false);
 		jf.add(panel);
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		jf.setVisible(true);
