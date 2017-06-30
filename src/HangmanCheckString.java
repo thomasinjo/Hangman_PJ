@@ -31,7 +31,7 @@ public class HangmanCheckString {
 	public char[] hangmanBlank = {'-','-','-','-','-','-','-','-','-','-',
 			'-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-',};
 	public char[] hangmanLetters;
-	public char[] usedLetterList = {'-','-','-','-','-','-','-','-','-','-',
+	public static char[] usedLetterList = {'-','-','-','-','-','-','-','-','-','-',
 			'-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-',};
 	char[]  charArray;
 	char[] charArrayTest;
@@ -55,6 +55,10 @@ public void chooseWord(){
                         hangmanLetters[i]=hangmanBlank[i];
                 }
 
+}
+
+public String word(){
+    return hangmanTemp;
 }
 public void checkWord(char ch){
 	usedLetter= false;

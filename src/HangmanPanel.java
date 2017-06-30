@@ -95,6 +95,10 @@ public class HangmanPanel extends JPanel implements MouseListener{
 		if(chString.wrongGuess == 6){
 			g.setColor(Color.red);
 			g.drawString("Hanged", 80, 250);
+                        g.setColor(Color.blue);
+                        g.setFont(new Font("Arial",Font.BOLD,16));
+                        g.drawString("The word was:", 40, 60);
+                        g.drawString(chString.word(),40,80);
 			g.setColor(Color.white);
 			g.fillRect(40, 418, 100, 50);
 			g.setColor(Color.red);
@@ -102,9 +106,25 @@ public class HangmanPanel extends JPanel implements MouseListener{
 			g.drawString("New Game", 45, 450);
 		}
 		
-
-		repaint();
+                String temp = "";
+                for(int i = 0; i < HangmanCheckString.usedLetterList.length; i++)
+                    if(HangmanCheckString.usedLetterList[i]!='-')
+                        temp += HangmanCheckString.usedLetterList[i] + ", ";
+                g.setColor(Color.blue);
+		g.setFont(new Font("Arial",Font.BOLD,16));
+                g.drawString(temp, 350, 80);
+		
 	}
+        
+        public void startNewGame(){
+            chString.wrongGuess = 0;
+		chString.chooseWord();
+		chString.winOrLoose = false;
+		for(int i = 0; i < 26; i++){ 
+		chString.usedLetterList[i] = '-';
+		}
+                repaint();
+        }
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
@@ -113,20 +133,15 @@ public class HangmanPanel extends JPanel implements MouseListener{
 		int mY = e.getY();
 	 ///the If statement below will activated when man is hanged or user wins 
 		if(mX > 40 && mX < 140 && mY > 418 && mY < 468 && (chString.wrongGuess == 6 || chString.winOrLoose == true)){
-			chString.wrongGuess = 0;
-			chString.chooseWord();
-			chString.winOrLoose = false;
-			for(int i = 0; i < 26; i++){ 
-				chString.usedLetterList[i] = '-';
-			}
+			startNewGame();
 		}
 		
 		 // the if statements below is the areas of the letters to be clicked.
 		
 		// Top line A to G
 		if(mX > 386 && mX < 430 && mY > 95 && mY < 170){
-		char ch = 'a';
-		chString.checkWord(ch);
+                        char ch = 'a';
+                        chString.checkWord(ch);
 		}
 		if(mX > 432 && mX < 468 && mY > 95 && mY < 170){
 			char ch = 'b';
@@ -145,7 +160,7 @@ public class HangmanPanel extends JPanel implements MouseListener{
 			chString.checkWord(ch);
 			}
 		if(mX > 593 && mX < 624 && mY > 95 && mY < 170){
-			char ch = 'f';  // f being click
+			char ch = 'f';  
 			chString.checkWord(ch);
 			}
 		if(mX > 625 && mX < 670 && mY > 95 && mY < 170){
@@ -236,9 +251,8 @@ public class HangmanPanel extends JPanel implements MouseListener{
 		if(mX > 605 && mX < 650 && mY > 330 && mY < 403){
 			char ch = 'z';
 			chString.checkWord(ch);
-			
-			
 		}
+                repaint();
 	}
 	@Override
 	public void mouseEntered(MouseEvent e) {
