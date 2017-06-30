@@ -31,7 +31,7 @@ public class HangmanCheckString {
 	public char[] hangmanBlank = {'-','-','-','-','-','-','-','-','-','-',
 			'-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-',};
 	public char[] hangmanLetters;
-	public char[] usedLetterList = {'-','-','-','-','-','-','-','-','-','-',
+	public static char[] usedLetterList = {'-','-','-','-','-','-','-','-','-','-',
 			'-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-','-',};
 	char[]  charArray;
 	char[] charArrayTest;

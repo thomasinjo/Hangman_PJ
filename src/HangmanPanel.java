@@ -106,8 +106,14 @@ public class HangmanPanel extends JPanel implements MouseListener{
 			g.drawString("New Game", 45, 450);
 		}
 		
-
-		repaint();
+                String temp = "";
+                for(int i = 0; i < HangmanCheckString.usedLetterList.length; i++)
+                    if(HangmanCheckString.usedLetterList[i]!='-')
+                        temp += HangmanCheckString.usedLetterList[i] + ", ";
+                g.setColor(Color.blue);
+		g.setFont(new Font("Arial",Font.BOLD,16));
+                g.drawString(temp, 350, 80);
+		
 	}
         
         public void startNewGame(){
@@ -117,6 +123,7 @@ public class HangmanPanel extends JPanel implements MouseListener{
 		for(int i = 0; i < 26; i++){ 
 		chString.usedLetterList[i] = '-';
 		}
+                repaint();
         }
 
 	@Override
@@ -244,9 +251,8 @@ public class HangmanPanel extends JPanel implements MouseListener{
 		if(mX > 605 && mX < 650 && mY > 330 && mY < 403){
 			char ch = 'z';
 			chString.checkWord(ch);
-			
-			
 		}
+                repaint();
 	}
 	@Override
 	public void mouseEntered(MouseEvent e) {
